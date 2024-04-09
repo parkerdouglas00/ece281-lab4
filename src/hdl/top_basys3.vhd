@@ -11,8 +11,8 @@
 --| ---------------------------------------------------------------------------
 --|
 --| FILENAME      : top_basys3.vhd
---| AUTHOR(S)     : Capt Phillip Warner
---| CREATED       : 3/9/2018  MOdified by Capt Dan Johnson (3/30/2020)
+--| AUTHOR(S)     : Capt Phillip Warner, C3C Parker Douglas
+--| CREATED       : 3/9/2018  Mcdified 09 Apr 2024
 --| DESCRIPTION   : This file implements the top level module for a BASYS 3 to 
 --|					drive the Lab 4 Design Project (Advanced Elevator Controller).
 --|
@@ -92,11 +92,11 @@ end top_basys3;
 architecture top_basys3_arch of top_basys3 is 
   
 	-- declare components and signals
-
+    component clock_divider
   
 begin
 	-- PORT MAPS ----------------------------------------
-
+    
 	
 	
 	-- CONCURRENT STATEMENTS ----------------------------
