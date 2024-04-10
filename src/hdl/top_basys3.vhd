@@ -124,7 +124,10 @@ architecture top_basys3_arch of top_basys3 is
 begin
 	-- PORT MAPS ----------------------------------------
     clock_divider_inst : clock_divider
-        generic map ( k_DIV => 12500000 )
+        -- basys3 clock = 100 MHz
+        -- the clock is divided by double the input number
+        -- e.g., k_DIV => 2 divides the clock by 4
+        generic map ( k_DIV => 50000000 )
         port map (
             -- inputs
             i_clk   => clk,
