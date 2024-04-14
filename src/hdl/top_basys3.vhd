@@ -120,6 +120,8 @@ architecture top_basys3_arch of top_basys3 is
     signal w_e_c_reset  : std_logic := '0';
     signal w_clk        : std_logic := '0';
     signal w_floor      : std_logic_vector(3 downto 0) := "0000";
+    signal w_dig0       : std_logic_vector(2 downto 0) := "0000";
+    signal w_dig1       : std_logic_vector(2 downto 0) := "0000";
   
 begin
 	-- PORT MAPS ----------------------------------------
@@ -160,6 +162,17 @@ begin
 	
 	
 	-- CONCURRENT STATEMENTS ----------------------------
+	
+	w_dig0 <=  x"6" when w_floor = x"0" else
+	           x"5" when w_floor = x"15" else
+	           x"4" when w_floor = x"14" else
+	           x"3" when w_floor = x"13" else
+	           x"2" when w_floor = x"12" else
+	           x"1" when w_floor = x"11" else
+	           x"0" when w_floor = x"10" else
+	           w_floor;
+	
+    w_dig1 <=  x"1" when ( w_floor > x"9" or w_floor = x"0" ) else x"0";
 	
 	w_e_c_reset    <= btnR or btnU;
 	w_c_d_reset    <= btnL or btnU;
